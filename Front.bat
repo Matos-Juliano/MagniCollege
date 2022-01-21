@@ -5,7 +5,9 @@ ECHO Installing packages
 
 cd ux
 
-npm install
+START npm install
 
 npm run ng serve -o
+
+PAUSE
 
