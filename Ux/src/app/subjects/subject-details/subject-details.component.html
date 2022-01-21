@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+                <div>
+                    <h3>Course Information</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <h4>Name: </h4>
+                        <h5>{{subject?.name}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Teacher</h4>
+                        <h5>{{subject?.teacher.name}}</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col"><a mat-raised-button (click)="openModal(updateTeacherModal, 'md')" style="margin: 2px;">Update Teacher</a></div>
+                    </div>
+                </div>
+                <div class="col-8" >
+                    <div class="row">
+                        <h4>Grades: </h4>
+                        <app-grades-table *ngIf="grades != null" [grades]="grades"></app-grades-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #updateTeacherModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Update teacher for {{subject?.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>      
+        <app-update-teacher *ngIf="subject" [subjectId]="subject.id" (changedEvent)="teacherChanged()"></app-update-teacher>
+</ng-template>

@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="row">
+            <label>Select a subject:</label>
+            <mat-form-field appearance="fill">
+                <mat-label>Subject</mat-label>
+                <mat-select [(ngModel)]="subjectId">
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.id">
+                        {{subject.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row" style="margin: 20px 0;">
+            <div style="display: flex; justify-content: flex-end">
+                <button  type="button" mat-raised-button [disabled]="success" color="primary" (click)="addSubject()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

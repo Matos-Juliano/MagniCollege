@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row justify-content-center" style="margin-top: 20px;">
+        <div class="col-5">
+            <h3>Student Info</h3>
+            <div class="row listage">
+                <div class="col">
+                    <div class="row">
+                        <h4>Name: </h4>
+                    </div>
+                    <div class="row">
+                       <h5>{{student?.name}}</h5> 
+                    </div>                    
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h4>Registration Id:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>{{student?.id}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row listage">
+                <div class="col">
+                    <div class="row">
+                        <h4>Course:</h4>
+                    </div>
+                    <div *ngIf="course != null" class="row">
+                        <h5>{{course?.name}}</h5>
+                    </div>
+                    <div *ngIf="course == null" class="row">
+                        <h5>Not Enrolled</h5>
+                    </div>
+                </div>   
+                <div class="col">
+                    <div class="row">
+                        <h4>Birthday:</h4>
+                    </div>
+                    <div class="row">
+                        <h5>{{student?.birthday| date:'shortDate'}}</h5>
+                    </div>
+                </div>                  
+            </div>
+            <div class="row listage">
+                <div class="col">
+                    <a mat-raised-button (click)="openModal(editModal, 'lg')" style="margin: 2px;">Edit</a>
+                    <a mat-raised-button (click)="openModal(addGradeModal, 'xl')" style="margin: 2px;">Add Grade</a>
+                    <a *ngIf="course == null" mat-raised-button (click)="openModal(enrollModal, 'md')" color="primary" style="margin: 2px;">Enroll</a>
+                    <a *ngIf="course" mat-raised-button (click)="openModal(disenrollModal, 'md')" color="warn" style="margin: 2px;">Disenroll</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <app-grades *ngIf="student != null" [studentId]="student.id" [events]="eventsSubject.asObservable()"></app-grades>
+        </div>
+    </div>
+</div>
+
+<ng-template #addGradeModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add grade to {{student?.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="updateGrades()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>      
+        <app-add-grade-modal [student]="student.id"></app-add-grade-modal>
+</ng-template>
+
+<ng-template #disenrollModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Disenroll {{student?.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModals()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>      
+        <app-disenroll-modal [studentId]="student.id" [student]="student.name" [course]="course?.name" (disenrolled)="updateEnrollment()"></app-disenroll-modal>
+</ng-template>
+
+<ng-template #enrollModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Enroll {{student?.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModals()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>      
+        <app-enroll [studentId]="student.id" [student]="student.name" (enrolled)="updateEnrollment()"></app-enroll>
+</ng-template>
+
+<ng-template #editModal let-modal> 
+        <app-edit-student [student]="student" [isEdit]="true" (updateEvent)="updateStudentInfo()"></app-edit-student>
+</ng-template>
+
+

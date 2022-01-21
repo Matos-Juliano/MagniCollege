@@ -1,0 +1,30 @@
+<div class="modal-body">
+    <div class="row justify-content-center">
+        <div class="col-10" style="margin: 10px;">
+            <mat-form-field appearance="fill">
+                <mat-label>Teacher</mat-label>
+                <mat-select [(ngModel)]="teacherId">
+                    <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+                        {{teacher.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row" *ngIf="success">
+        <div class="col-12 success">
+            <span>The teacher was sucessfully registered!</span>
+        </div>
+    </div>
+    <div class="row" *ngIf="success === false">
+        <div class="col-12 failure">
+            <span>Something went wrong!</span>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center" style="margin-top: 20px; margin-bottom: 25px;">
+        <div class="col-10"><div style="display: flex; justify-content: flex-end">
+            <button type="button" mat-raised-button [disabled]="success" color="primary" (click)="updateTeacher()">Submit</button>
+        </div></div>
+    </div>
+</div>

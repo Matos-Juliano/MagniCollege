@@ -1,0 +1,25 @@
+<div class="modal-body">
+    <div *ngIf="!success" class="row justify-content-center">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <span>Are you sure you want to disenroll {{student}} from {{course}}?</span>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div style="display: flex; justify-content: flex-end">
+                    <button  type="button" mat-raised-button color="primary" (click)="disenroll()">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="success" class="row justify-content-center">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <span>{{student}} was successfully disenrolled.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

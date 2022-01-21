@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <h4>Here's a list of students:</h4>
+        </div>
+        <div class="col-2" style="display: flex; justify-content: flex-end">
+            <a mat-raised-button (click)="openModal(editModal, 'md')" style="margin: 10px;">Add new</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <app-student-data-table></app-student-data-table>
+        </div>
+    </div>
+
+    <ng-template #editModal let-modal>             
+            <app-edit-student (createdEvent)="updateStudentInfo($event)"></app-edit-student>
+    </ng-template>
+</div>

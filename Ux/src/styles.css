@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.con-100{
+    width: 100%;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 10000 !important;
+}
+
+.failure{
+    background-color: rgb(237, 52, 55);
+    text-align: center;
+    border-radius: 10px;
+    height: 3.5rem;
+    padding-top: 15px;
+}
+
+.success{
+    margin-top: 20px;
+    background-color: rgb(35, 231, 133);
+    text-align: center;
+    border-radius: 10px;
+    height: 3.5rem;
+    padding-top: 15px;
+}

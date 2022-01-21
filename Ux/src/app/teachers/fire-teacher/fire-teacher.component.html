@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="row"><span>Are you sure you want to fire teacher {{teacher.name}}?</span></div>
+        <div class="row" *ngIf="success" >
+            <div class="col-12 success">
+                <span>The teacher was sucessfully registered!</span>
+            </div>
+        </div>
+        <div class="row" *ngIf="success === false">
+            <div class="col-12 failure">
+                <span>Something went wrong!</span>
+            </div>
+        </div>
+        <div class="row" style="margin: 10px 0px;">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <a mat-raised-button [disabled]="success" color="warn" style="margin: 2px;" (click)="fireTeacher()">Fire</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="modal-body">
+    <form [formGroup]="gradeForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <h4>Select subject</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Subject</mat-label>
+                        <mat-select formControlName="subjectId">
+                            <mat-option *ngFor="let subject of subjects" [value]="subject.id" >
+                                {{subject.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-2">
+                    <h4>Value:</h4>
+                    <input matInput type="number" min="0" max="10" class="value-input" formControlName="value">
+                </div>
+            </div>
+            <div class="row" *ngIf="success">
+                <div class="col-12 success">
+                    <span>The grade was successfully added to the student!</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row" style="margin-top: 20px;">
+        <div style="display: flex; justify-content: flex-end">
+            <button  type="button" mat-raised-button [disabled]="success" color="primary" (click)="addGrade()">Add Grade</button>
+        </div>
+    </div>
+</div>

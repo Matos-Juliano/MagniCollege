@@ -1,0 +1,34 @@
+<div class="modal-body">
+    <form [formGroup]="enrollForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>Select a course:</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Courses</mat-label>
+                        <mat-select formControlName="courseId">
+                            <mat-option *ngFor="let course of courses" [value]="course.id" >
+                                {{course.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" *ngIf="success">
+                <div class="col-12 success">
+                    <span>The Student was sucessfully enrolled!</span>
+                </div>
+            </div>
+            <div class="row" *ngIf="success === false">
+                <div class="col-12 failure">
+                    <span>Something went wrong!</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row" style="margin-top: 20px;">
+        <div style="display: flex; justify-content: flex-end">
+            <button  type="button" mat-raised-button [disabled]="success" color="primary" (click)="enrollStudent()">Enroll Student</button>
+        </div>
+    </div>
+</div>

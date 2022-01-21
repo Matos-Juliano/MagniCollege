@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+                <div>
+                    <h3>Teacher Information</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <h4>Name: </h4>
+                        <h5>{{teacher?.name}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Birthday:</h4>
+                        <h5>{{teacher?.birthday}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Salary:</h4>
+                        <h5>{{teacher?.salary}}</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a mat-raised-button color="warn" style="margin: 2px;" (click)="openModal(FireTeacherModal, 'md')">Fire</a>
+                            <a mat-raised-button color="primary" style="margin: 2px;" (click)="openModal(UpdateTeacherModal, 'lg')">Update</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <h4>Teaching these subjects: </h4>
+                        <app-subjects-table *ngIf="teacher != null" [teacherId]="teacherId"></app-subjects-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #FireTeacherModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Do you wish to fire {{teacher?.name}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+    </div>
+    <app-fire-teacher *ngIf="teacher != null" [teacher]="teacher" (firedEvent)="refreshTeacher()"></app-fire-teacher>
+</ng-template>
+
+<ng-template #UpdateTeacherModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Update {{teacher?.name}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+    </div>
+    <app-add-update-teacher *ngIf="teacher != null" [teacherId]="teacher.id" (createdEvent)="refreshTeacher()"></app-add-update-teacher>
+</ng-template>
