@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MagniCollege.Data\MagniCollege.Data.csproj" />
+    <ProjectReference Include="..\MagniCollege.Models\MagniCollege.Models.csproj" />
+  </ItemGroup>
+
+</Project>

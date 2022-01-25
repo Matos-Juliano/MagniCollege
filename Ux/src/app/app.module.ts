@@ -43,6 +43,9 @@ import { FireTeacherComponent } from './teachers/fire-teacher/fire-teacher.compo
 import { AddSubjectComponent } from './courses/add-subject/add-subject.component';
 import { UpdateTeacherComponent } from './subjects/update-teacher/update-teacher.component'
 import { CreateSubjectComponent } from './subjects/add-subject/add-subject.component';
+import { CourseDetailsV2Component } from './courses/course-details-v2/course-details-v2.component';
+import { StudentDataTableV2Component } from './students/student-data-table/student-data-table-v2.component';
+import { SubjectsTableV2Component } from './subjects/subjects-table/subjects-table-v2.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,10 @@ import { CreateSubjectComponent } from './subjects/add-subject/add-subject.compo
     FireTeacherComponent,
     AddSubjectComponent,
     UpdateTeacherComponent,
-    CreateSubjectComponent
+    CreateSubjectComponent,
+    CourseDetailsV2Component,
+    StudentDataTableV2Component,
+    SubjectsTableV2Component
   ],
   imports: [
     BrowserModule,

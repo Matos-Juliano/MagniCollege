@@ -9,6 +9,7 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { SubjectsComponent } from './subjects/subjects.component';
 import { SubjectDetailsComponent } from './subjects/subject-details/subject-details.component';
 import { TeacherDetailsComponent } from './teachers/teacher-details/teacher-details.component';
+import { CourseDetailsV2Component } from './courses/course-details-v2/course-details-v2.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},  
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "teachers", component: TeachersComponent},
   {path: "teachers/:id", component: TeacherDetailsComponent},
   {path: "students/:id", component: StudentDetailsComponent},
-  {path: "courses/:id", component:CourseDetailsComponent},
+  //{path: "courses/:id", component:CourseDetailsComponent},
+  {path: "courses/:id", component:CourseDetailsV2Component},
   {path: "subjects", component:SubjectsComponent},
   {path: "subjects/:id", component:SubjectDetailsComponent}
 ];

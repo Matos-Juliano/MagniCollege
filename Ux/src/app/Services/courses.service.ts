@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICourses } from '../shared/Models/ICourses';
+import { ICoursesView } from '../shared/Models/ICoursesView';
 import { ISubject } from '../shared/Models/ISubject';
 import { IStudent } from '../shared/Models/Student';
 
@@ -50,6 +51,10 @@ export class CoursesService {
 
   RemoveSubjectFromCourse(courseId:number, subjectid:number):Observable<boolean>{
     return this.http.delete<boolean>('http://localhost:5000/api/courses/' + courseId + '/subject', {body: {subjectId:subjectid}})
+  }
+
+  GetCourseViewFromV2(courseId:number):Observable<ICoursesView>{
+    return this.http.get<ICoursesView>('http://localhost:5000/v2/api/courses/' + courseId);
   }
 
 }

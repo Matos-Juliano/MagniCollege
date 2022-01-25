@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+                <div>
+                    <h3>Course Information</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="row">
+                        <h4>Name: </h4>
+                        <h5>{{coursesView?.course.name}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Total students enrolled:</h4>
+                        <h5>{{coursesView?.students.length}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Total teachers:</h4>
+                        <h5>{{coursesView?.teachersTotal}}</h5>
+                    </div>
+                    <div class="row">
+                        <h4>Average grade:</h4>
+                        <h5>{{coursesView?.averageGrade | number : '1.2-2'}}</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a mat-raised-button color="primary" style="margin: 2px;" (click)="openModal(addSubjectModal, 'md')">Add Subject</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8" *ngIf="showStudents">
+                    <div class="row">
+                        <h4>Enrolled students: </h4>
+                        <app-student-data-table [courseId]="courseId"></app-student-data-table>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <h4>Subjects on this course: </h4>
+                        <app-subjects-table-v2 #subjectTable [courseId]="courseId" [subjects]="coursesView.subjects" (removeEvent)="removeSubject($event)"></app-subjects-table-v2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addSubjectModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add subject to {{coursesView?.course.name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModals()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>      
+        <app-add-subject [courseId]="courseId" (addedEvent)="updateCourseInfo()"></app-add-subject>
+</ng-template>
