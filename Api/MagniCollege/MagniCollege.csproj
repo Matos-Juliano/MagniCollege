@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MagniCollege.Data\MagniCollege.Data.csproj" />
+    <ProjectReference Include="..\MagniCollege.Infrastructure\MagniCollege.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

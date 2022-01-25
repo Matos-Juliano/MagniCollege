@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagniCollege.Models", "Magn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagniCollege.Data", "MagniCollege.Data\MagniCollege.Data.csproj", "{D4F134FE-5ACA-4190-9C32-F4C4FA8BD1AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagniCollegeMigrate", "MagniCollegeMigrate\MagniCollegeMigrate.csproj", "{33DE93BE-4F67-460C-A3FA-D0311803E9DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagniCollegeMigrate", "MagniCollegeMigrate\MagniCollegeMigrate.csproj", "{33DE93BE-4F67-460C-A3FA-D0311803E9DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagniCollege.Infrastructure", "MagniCollege.Infrastructure\MagniCollege.Infrastructure.csproj", "{2BBA08D5-247F-4330-AE03-C056FF8998A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{33DE93BE-4F67-460C-A3FA-D0311803E9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33DE93BE-4F67-460C-A3FA-D0311803E9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33DE93BE-4F67-460C-A3FA-D0311803E9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BBA08D5-247F-4330-AE03-C056FF8998A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BBA08D5-247F-4330-AE03-C056FF8998A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BBA08D5-247F-4330-AE03-C056FF8998A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BBA08D5-247F-4330-AE03-C056FF8998A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

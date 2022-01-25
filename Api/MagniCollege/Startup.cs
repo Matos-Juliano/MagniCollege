@@ -1,4 +1,5 @@
 using MagniCollege.Data;
+using MagniCollege.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,7 @@ namespace MagniCollege
             services.AddScoped<ICourseRepo, CourseRepo>();
             services.AddScoped<IStudentRepo, StudentRepo>();
             services.AddScoped<ITeachersRepo, TeachersRepo>();
+            services.AddTransient<ICoursesService, CoursesService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
